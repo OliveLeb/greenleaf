@@ -15,7 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('pictures')->get();
+        
         return Inertia::render('Welcome', [
             'products' => $products
         ]);

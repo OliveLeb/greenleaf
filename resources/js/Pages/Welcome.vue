@@ -5,6 +5,17 @@
     <section><h2>A la une</h2></section>
     <section><h2>New</h2></section>
     <section><h2>Top Sales</h2></section>
+    
+    <section>
+        <article v-for="product in products" :key="product.id">
+            <figure>
+                <img :src="'images/'+product.picture" alt="">
+                <figcaption>
+                    <h4>{{ product.name }}</h4>
+                </figcaption>
+            </figure>
+        </article>
+    </section>
 
 
 </app-layout>
