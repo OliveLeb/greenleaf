@@ -6,7 +6,7 @@
     <section><h2>New</h2></section>
     <section><h2>Top Sales</h2></section>
     
-    <section>
+    <section class="flex flex-wrap">
         <article v-for="product in products" :key="product.id">
             <figure>
                 <img :src="'images/'+product.pictures[0].link" alt="">

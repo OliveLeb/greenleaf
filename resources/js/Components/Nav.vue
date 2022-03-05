@@ -3,6 +3,7 @@
   import { Link } from '@inertiajs/inertia-vue3';
   import { onMounted, ref, watch } from 'vue'
   import BurgerMenu from './BurgerMenu.vue'
+  import MainLogo from './MainLogo.vue';
 
   const showMenu = ref(false)
   const size =  ref(0)
@@ -23,6 +24,10 @@
     showMenu.value = !showMenu.value
   }
 
+    const logout = () => {
+        $inertia.post(route('logout'))
+    }
+
 </script>
 
 
@@ -34,8 +39,8 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
-                        <Link :href="route('welcome')" class="font-logo block w-auto hover:text-yellow-500 transition">
-                            Green Leaf
+                        <Link :href="route('welcome')" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
+                            <MainLogo width="auto" height="60" />
                         </Link>
                     </div>
                 </div>

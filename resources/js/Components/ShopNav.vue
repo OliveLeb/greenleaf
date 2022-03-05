@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { Link } from '@inertiajs/inertia-vue3'
 
   const categories = [
     'Fruitiers', 'Plantes d\'intérieurs', 'Plantes Aromatiques', 'Graines', 'Arbres & arbustes'
@@ -18,9 +19,9 @@ const showAside = ref(false)
         class="px-4"
         :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
       >
-        <a href="#">
+        <Link href="#">
           {{ category }}
-        </a>  
+        </Link>  
       </div>
     </div>
 
@@ -34,7 +35,7 @@ const showAside = ref(false)
             Menu
           </span>
         </button>
-        <a href="#" class="px-4 py-2">Return to top</a>
+        <Link href="#" class="px-4 py-2">Return to top</Link>
     </div>
   </nav>
 
@@ -44,9 +45,9 @@ const showAside = ref(false)
   <Transition name="slide-right">
     <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5" v-show="showAside">
         <div v-for="category in categories" :key="category" class="px-4 py-2">
-          <a href="#">
+          <Link href="#">
             {{ category }}
-          </a>  
+          </Link>  
         </div>
     </aside>
   </Transition>

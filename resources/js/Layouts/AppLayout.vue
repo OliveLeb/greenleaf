@@ -2,7 +2,7 @@
     <div>
         <Head :title="title" />
 
-        <div class="min-h-screen bg-gray-100 flex flex-col">
+        <div class="min-h-screen bg-white flex flex-col">
            
            <Nav />
 
@@ -16,7 +16,7 @@
             </header>
 
             <!-- Page Content -->
-            <main class="flex-1">
+            <main class="flex-1 p-4 md:px-6 md:py-12">
                 <slot></slot>
             </main>
             <footer class="text-center text-white bg-gray-700 px-4 py-4">
@@ -31,18 +31,12 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue'
-    import { Head } from '@inertiajs/inertia-vue3';
-    import Nav from '../Components/Nav.vue'
+import { Head } from '@inertiajs/inertia-vue3';
+import Nav from '../Components/Nav.vue'
 import ShopNav from '../Components/ShopNav.vue';
 
-    const props = defineProps({
-        title: String
-    })
+const props = defineProps({
+    title: String
+})
 
-    const showingNavigationDropdown = ref(false)
-
-    const logout = () => {
-        $inertia.post(route('logout'))
-    }
 </script>
