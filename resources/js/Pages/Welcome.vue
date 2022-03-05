@@ -9,7 +9,7 @@
     <section>
         <article v-for="product in products" :key="product.id">
             <figure>
-                <img :src="'images/'+product.picture" alt="">
+                <img :src="'images/'+product.pictures[0].link" alt="">
                 <figcaption>
                     <h4>{{ product.name }}</h4>
                 </figcaption>
