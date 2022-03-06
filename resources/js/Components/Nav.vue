@@ -25,7 +25,7 @@
   }
 
     const logout = () => {
-        $inertia.post(route('logout'))
+        $inertia.post('/logout')
     }
 
 </script>
@@ -39,7 +39,7 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
-                        <Link :href="route('welcome')" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
+                        <Link href="/" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
                             <MainLogo width="auto" height="60" />
                         </Link>
                     </div>
@@ -48,14 +48,14 @@
                 <div class="hidden md:flex md:items-center md:ml-6">
                     <div class="ml-3 relative">
                         <div class="flex items-center space-x-3 relative">
-                            <Link :href="route('dashboard')" class="hover:text-yellow-500 transition" v-if="$page.props.user">
+                            <Link href="/dashboard" class="hover:text-yellow-500 transition" v-if="$page.props.user">
                                 Dashboard
                             </Link>
                             <template v-else>
-                                <Link :href="route('register')" class="hover:text-yellow-500 transition">
+                                <Link href="/register" class="hover:text-yellow-500 transition">
                                     Register
                                 </Link>
-                                <Link :href="route('login')" class="hover:text-yellow-500 transition">
+                                <Link href="/login" class="hover:text-yellow-500 transition">
                                     Login
                                 </Link>
                             </template>
@@ -98,19 +98,20 @@
         >
             <template v-if="$page.props.user">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                    <!-- :active="route().current('dashboard')" -->
+                    <jet-responsive-nav-link href="/dashboard">
                         Dashboard
                     </jet-responsive-nav-link>
                 </div>
             </template>
             <template v-else>
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('register')">
+                    <jet-responsive-nav-link href="/register">
                         Register
                     </jet-responsive-nav-link>
                 </div>
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('login')">
+                    <jet-responsive-nav-link href="/login">
                         Login
                     </jet-responsive-nav-link>
                 </div>
