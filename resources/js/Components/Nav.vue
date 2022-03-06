@@ -15,9 +15,14 @@
     })    
   })
 
-  watch(size, ()=> {
+  watch(size, () => {
     if (size.value >= 768) return showMenu.value = false
     return true
+  })
+
+  watch(showMenu, () => {
+      if (showMenu.value) document.documentElement.style.overflow = 'hidden'
+      else document.documentElement.style.overflow = 'auto'
   })
 
   function toggleMobileMenu() {
@@ -32,20 +37,20 @@
 
 
 <template>
- <nav class="bg-white border-b border-grey-700">
+ <nav class="bg-white border-b border-grey-700 z-50 lg:pt-3">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between ">
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
                         <Link href="/" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
-                            <MainLogo width="auto" height="60" />
+                            <MainLogo />
                         </Link>
                     </div>
                 </div>
 
-                <div class="hidden md:flex md:items-center md:ml-6">
+                <div class="hidden sm:flex sm:items-center lg:items-start md:ml-6">
                     <div class="ml-3 relative">
                         <div class="flex items-center space-x-3 relative">
                             <Link href="/dashboard" class="hover:text-yellow-500 transition" v-if="$page.props.user">
@@ -91,7 +96,7 @@
         <div v-show="showMenu"
           class="
           fixed
-          left-0 right-0 bottom-0 top-16
+          left-0 right-0 bottom-0 top-[4.5rem]
           bg-white
           text-center
           "

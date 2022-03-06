@@ -43,7 +43,7 @@ const showAside = ref(false)
   </div>
 
   <Transition name="slide-right">
-    <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5" v-show="showAside">
+    <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5 z-200" v-show="showAside">
         <div v-for="category in categories" :key="category" class="px-4 py-2">
           <Link href="#">
             {{ category }}
