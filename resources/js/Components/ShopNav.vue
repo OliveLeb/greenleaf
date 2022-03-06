@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Link } from '@inertiajs/inertia-vue3'
+import NavLink from './NavLink.vue';
 
   const categories = [
     'Fruitiers', 'Plantes d\'intérieurs', 'Plantes Aromatiques', 'Graines', 'Arbres & arbustes'
@@ -14,14 +15,13 @@ const showAside = ref(false)
 <template>
   <nav class="border-b border-grey-700 sticky top-0 bg-white">
 
-    <div class="hidden md:flex justify-center md:py-2">  
+    <div class="hidden md:flex justify-center py-2">  
       <div v-for="(category, index) in categories" :key="category"
-        class="px-4"
         :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
       >
-        <Link href="#">
+        <NavLink href="#">
           {{ category }}
-        </Link>  
+        </NavLink>
       </div>
     </div>
 
@@ -43,7 +43,7 @@ const showAside = ref(false)
   </div>
 
   <Transition name="slide-right">
-    <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5 z-200" v-show="showAside">
+    <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5 z-[100]" v-show="showAside">
         <div v-for="category in categories" :key="category" class="px-4 py-2">
           <Link href="#">
             {{ category }}

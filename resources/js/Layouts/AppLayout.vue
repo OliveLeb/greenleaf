@@ -1,3 +1,15 @@
+<script setup>
+import { Head } from '@inertiajs/inertia-vue3';
+import Nav from '../Components/Nav.vue'
+import ShopNav from '../Components/ShopNav.vue';
+import TheFooter from '@/Components/TheFooter.vue'
+
+const props = defineProps({
+    title: String
+})
+
+</script>
+
 <template>
     <div>
         <Head :title="title" />
@@ -19,24 +31,8 @@
             <main class="flex-1 p-4 md:px-6 md:py-12">
                 <slot></slot>
             </main>
-            <footer class="text-center text-white bg-gray-700 px-4 py-4">
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti excepturi odio facere quidem totam, sunt sequi aliquid blanditiis eos!
-                    </p>
-                </div>
-            </footer>
+            
+            <TheFooter />
         </div>
     </div>
 </template>
-
-<script setup>
-import { Head } from '@inertiajs/inertia-vue3';
-import Nav from '../Components/Nav.vue'
-import ShopNav from '../Components/ShopNav.vue';
-
-const props = defineProps({
-    title: String
-})
-
-</script>
