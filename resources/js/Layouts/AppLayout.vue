@@ -1,35 +1,35 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3';
 
-const props = defineProps({
-    title: String
+defineProps({
+  title: String
 })
 
 </script>
 
 <template>
-    <div>
-        <Head :title="title" />
+  <div>
+    <Head :title="title" />
 
-        <div class="min-h-screen bg-white flex flex-col">
-           
-           <Nav />
+    <div class="min-h-screen bg-white flex flex-col">
+        
+      <Nav />
 
-           <ShopNav />
+      <ShopNav />
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header"></slot>
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main class="flex-1 p-4 md:px-6 md:py-12">
-                <slot></slot>
-            </main>
-            
-            <TheFooter />
+        <!-- Page Heading -->
+      <header class="bg-white shadow" v-if="$slots.header">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <slot name="header"></slot>
         </div>
+      </header>
+
+        <!-- Page Content -->
+      <main class="flex-1 p-4 md:px-6 md:py-12">
+        <slot></slot>
+      </main>
+        
+      <TheFooter />
     </div>
+  </div>
 </template>

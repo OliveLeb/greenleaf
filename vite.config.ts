@@ -8,26 +8,26 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
-    plugins: [
-        inertia(),
+  plugins: [
+    inertia(),
 
-        vue(),
+    vue(),
 
-        laravel({
-            postcss: [tailwindcss(), autoprefixer()],
-        }),
+    laravel({
+      postcss: [tailwindcss(), autoprefixer()],
+    }),
 
-        AutoImport({
-            imports: [
-                'vue'
-            ],
-            dts: 'resources/js/auto-imports.d.ts'
-        }),
+    AutoImport({
+      imports: [
+          'vue'
+      ],
+      dts: 'resources/js/auto-imports.d.ts'
+    }),
 
-        Components({
-            dirs: ['resources/js/Components', 'resources/js/Jetstream', 'resources/js/Layouts'],
-            extensions: ['vue'],
-            dts: 'resources/js/components.d.ts'
-        })
-    ],
+    Components({
+      dirs: ['resources/js/Components', 'resources/js/Jetstream', 'resources/js/Layouts'],
+      extensions: ['vue'],
+      dts: 'resources/js/components.d.ts'
+    })
+  ],
 });
