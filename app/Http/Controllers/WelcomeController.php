@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -16,9 +17,11 @@ class WelcomeController extends Controller
     public function index()
     {
         $products = Product::with('pictures')->get();
+        // $categories = Category::get(['name', 'slug']);
         
         return Inertia::render('Welcome', [
-            'products' => $products
+            'products' => $products,
+            // 'categories' => $categories
         ]);
     }
 

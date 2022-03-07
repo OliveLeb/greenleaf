@@ -1,13 +1,11 @@
 <script setup>
-import { ref } from 'vue'
-import { Link } from '@inertiajs/inertia-vue3'
+import { ref, computed } from 'vue'
+import { Link, usePage } from '@inertiajs/inertia-vue3'
 import NavLink from './NavLink.vue';
 
-  const categories = [
-    'Fruitiers', 'Plantes d\'intérieurs', 'Plantes Aromatiques', 'Graines', 'Arbres & arbustes'
-  ]
+  const categories = computed(() => usePage().props.value.categories)
 
-const showAside = ref(false)
+  const showAside = ref(false)
 
 </script>
 
@@ -16,11 +14,11 @@ const showAside = ref(false)
   <nav class="border-b border-grey-700 sticky top-0 bg-white">
 
     <div class="hidden md:flex justify-center py-2">  
-      <div v-for="(category, index) in categories" :key="category"
+      <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
       >
         <NavLink href="#">
-          {{ category }}
+          {{ category.name }}
         </NavLink>
       </div>
     </div>

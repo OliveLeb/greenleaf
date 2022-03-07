@@ -8,7 +8,7 @@
 
         @vite
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-robot antialiased">
         @inertia
     </body>
 </html>

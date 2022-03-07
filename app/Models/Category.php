@@ -2,26 +2,26 @@
 
 namespace App\Models;
 
+use App\Models\Picture;
 use App\Models\Product;
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Picture extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title', 'link', 'alt'
+        'name', 'slug', 'category_code'
     ];
 
     public $timestamps = false;
 
-    public function product() {
-        return $this->belongsTo(Product::class);
+    public function products() {
+        return $this->belongsToMany(Product::class);
     }
 
-    public function category() {
-        return $this->belongsTo(Category::class);
+    public function picture() {
+        return $this->hasOne(Picture::class);
     }
 }

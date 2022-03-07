@@ -13,6 +13,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                logo: ["Montserrat"],
+                robot: ["Roboto"]
             },
             colors: {
                 primary: "#34C45E",

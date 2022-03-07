@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Picture;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -23,5 +24,9 @@ class Product extends Model
 
     public function pictures() {
         return $this->hasMany(Picture::class);
+    }
+
+    public function categories() {
+        return $this->belongsToMany(Category::class);
     }
 }

@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProductFactory extends Factory
 {
+
+    private static $order = 1;
+
     /**
      * Define the model's default state.
      *
@@ -20,9 +23,16 @@ class ProductFactory extends Factory
             'name' => $this->faker->name($gender=null),
             'details' => $this->faker->sentence($nbWords = 5),
             'description' => $this->faker->text($maxNbChars = 200),
-            'product_code' => '-00',
+            'product_code' => 'overriden',
             'price' => $this->faker->numberBetween($min = 500, $max = 10000),
             'quantity' => $this->faker->numberBetween($min = 1, $max = 100),
         ];
+    }
+
+    public function withCategory($code) 
+    {
+        return $this->state([
+            'product_code' => $code . '-00' . self::$order++
+        ]);
     }
 }

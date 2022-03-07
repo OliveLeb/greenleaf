@@ -16,8 +16,6 @@
             </figure>
         </article>
     </section>
-
-
 </app-layout>
 </template>
 
