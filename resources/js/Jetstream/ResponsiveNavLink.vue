@@ -13,7 +13,7 @@
 <script setup>
   import { Link } from '@inertiajs/inertia-vue3';
 
-  const props = defineProps(['href', 'active'])
+  const props = defineProps(['href', 'active', 'as'])
   
   const classes = computed(() => {
     return props.active
