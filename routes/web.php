@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 
 /*
@@ -16,7 +17,16 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
+/*
+*   Home Page
+*/
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
+/* 
+*   Shop
+*/
+Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
