@@ -13,7 +13,7 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
 
-  const props = defineProps({
+  defineProps({
     link: {
       type: String,
       default: '#'

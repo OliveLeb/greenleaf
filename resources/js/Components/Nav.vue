@@ -1,34 +1,29 @@
 <script setup>
-  import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
-  import { Link } from '@inertiajs/inertia-vue3';
-  import { onMounted, ref, watch } from 'vue'
-  import BurgerMenu from './BurgerMenu.vue'
-  import MainLogo from './MainLogo.vue';
-  import Icons from './Icons.vue'
+    import { Link } from '@inertiajs/inertia-vue3';
 
-  const showMenu = ref(false)
-  const size =  ref(0)
+    const showMenu = ref(false)
+    const size =  ref(0)
 
-  onMounted(()=>{
-    size.value = window.innerWidth
-    window.addEventListener('resize', ()=> {
-      size.value = window.innerWidth
-    })    
-  })
+    onMounted(()=>{
+        size.value = window.innerWidth
+        window.addEventListener('resize', ()=> {
+            size.value = window.innerWidth
+        })    
+    })
 
-  watch(size, () => {
-    if (size.value >= 768) return showMenu.value = false
-    return true
-  })
+    watch(size, () => {
+        if (size.value >= 768) return showMenu.value = false
+        return true
+    })
 
-  watch(showMenu, () => {
-      if (showMenu.value) document.documentElement.style.overflow = 'hidden'
-      else document.documentElement.style.overflow = 'auto'
-  })
+    watch(showMenu, () => {
+        if (showMenu.value) document.documentElement.style.overflow = 'hidden'
+        else document.documentElement.style.overflow = 'auto'
+    })
 
-  function toggleMobileMenu() {
+    function toggleMobileMenu() {
     showMenu.value = !showMenu.value
-  }
+    }
 
     const logout = () => {
         $inertia.post('/logout')
@@ -103,27 +98,27 @@
             <template v-if="$page.props.user">
                 <div class="pt-2 pb-3 space-y-1">
                     <!-- :active="route().current('dashboard')" -->
-                    <jet-responsive-nav-link href="/dashboard">
+                    <responsive-nav-link href="/dashboard">
                         Dashboard
-                    </jet-responsive-nav-link>
+                    </responsive-nav-link>
                 </div>
             </template>
             <template v-else>
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link href="/register">
+                    <responsive-nav-link href="/register">
                         Register
-                    </jet-responsive-nav-link>
+                    </responsive-nav-link>
                 </div>
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link href="/login">
+                    <responsive-nav-link href="/login">
                         Login
-                    </jet-responsive-nav-link>
+                    </responsive-nav-link>
                 </div>
             </template>
             <div class="pt-2 pb-3 space-y-1">
-                <jet-responsive-nav-link href="#">
+                <responsive-nav-link href="#">
                     Shop
-                </jet-responsive-nav-link>
+                </responsive-nav-link>
             </div>
             <div class="pt-2 pb-3 space-y-1">
                 <Link href="#" class="flex items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-red-700 hover:border-red-700 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition">                    
@@ -139,9 +134,9 @@
                 <div class="mt-3 space-y-1">
                     <!-- Authentication -->
                     <form method="POST" @submit.prevent="logout">
-                        <jet-responsive-nav-link as="button">
+                        <responsive-nav-link as="button">
                             Log Out
-                        </jet-responsive-nav-link>
+                        </responsive-nav-link>
                     </form>
                 </div>
             </div>

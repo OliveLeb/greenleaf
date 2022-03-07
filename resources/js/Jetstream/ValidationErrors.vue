@@ -8,18 +8,8 @@
     </div>
 </template>
 
-<script>
-    import { defineComponent } from 'vue'
+<script setup>
+    const errors = computed(() => $page.props.errors)
 
-    export default defineComponent({
-        computed: {
-            errors() {
-                return this.$page.props.errors
-            },
-
-            hasErrors() {
-                return Object.keys(this.errors).length > 0;
-            },
-        }
-    })
+    const hasErrors = computed(() => Object.keys(errors).length > 0)
 </script>

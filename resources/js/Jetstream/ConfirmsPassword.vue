@@ -4,7 +4,7 @@
             <slot />
         </span>
 
-        <jet-dialog-modal :show="confirmingPassword" @close="closeModal">
+        <dialog-modal :show="confirmingPassword" @close="closeModal">
             <template #title>
                 {{ title }}
             </template>
@@ -13,36 +13,29 @@
                 {{ content }}
 
                 <div class="mt-4">
-                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                    <input type="password" class="mt-1 block w-3/4" placeholder="Password"
                                 ref="password"
                                 v-model="form.password"
                                 @keyup.enter="confirmPassword" />
 
-                    <jet-input-error :message="form.error" class="mt-2" />
+                    <input-error :message="form.error" class="mt-2" />
                 </div>
             </template>
 
             <template #footer>
-                <jet-secondary-button @click="closeModal">
+                <secondary-button @click="closeModal">
                     Cancel
-                </jet-secondary-button>
+                </secondary-button>
 
-                <jet-button class="ml-3" @click="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <button class="ml-3" @click="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ button }}
-                </jet-button>
+                </button>
             </template>
-        </jet-dialog-modal>
+        </dialog-modal>
     </span>
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import JetButton from './Button.vue'
-    import JetDialogModal from './DialogModal.vue'
-    import JetInput from './Input.vue'
-    import JetInputError from './InputError.vue'
-    import JetSecondaryButton from './SecondaryButton.vue'
-
     export default defineComponent({
         emits: ['confirmed'],
 
@@ -56,14 +49,6 @@
             button: {
                 default: 'Confirm',
             }
-        },
-
-        components: {
-            JetButton,
-            JetDialogModal,
-            JetInput,
-            JetInputError,
-            JetSecondaryButton,
         },
 
         data() {

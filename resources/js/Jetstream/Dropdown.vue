@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, onUnmounted, ref } from "vue";
-
 export default defineComponent({
     props: {
         align: {

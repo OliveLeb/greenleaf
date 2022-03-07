@@ -1,8 +1,5 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3';
-import Nav from '../Components/Nav.vue'
-import ShopNav from '../Components/ShopNav.vue';
-import TheFooter from '@/Components/TheFooter.vue'
 
 const props = defineProps({
     title: String

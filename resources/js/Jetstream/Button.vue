@@ -4,15 +4,11 @@
     </button>
 </template>
 
-<script>
-    import { defineComponent } from 'vue'
-
-    export default defineComponent({
-        props: {
-            type: {
-                type: String,
-                default: 'submit',
-            },
+<script setup>
+    defineProps({
+        type: {
+            type: String,
+            default: 'submit'
         }
     })
 </script>

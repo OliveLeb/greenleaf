@@ -1,7 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
 import { Link, usePage } from '@inertiajs/inertia-vue3'
-import NavLink from './NavLink.vue';
 
   const categories = computed(() => usePage().props.value.categories)
 
@@ -17,9 +15,9 @@ import NavLink from './NavLink.vue';
       <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
       >
-        <NavLink href="#">
+        <ShopNavLink href="#">
           {{ category.name }}
-        </NavLink>
+        </ShopNavLink>
       </div>
     </div>
 

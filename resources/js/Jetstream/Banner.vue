@@ -37,24 +37,12 @@
     </div>
 </template>
 
-<script>
-    import { defineComponent } from 'vue'
+<script setup>
 
-    export default defineComponent({
-        data() {
-            return {
-                show: true,
-            }
-        },
+    const show = ref(true)
 
-        computed: {
-            style() {
-                return this.$page.props.jetstream.flash?.bannerStyle || 'success'
-            },
+    const style = computed(() => $page.props.jetstream.flash?.bannerStyle || 'success')
 
-            message() {
-                return this.$page.props.jetstream.flash?.banner || ''
-            },
-        }
-    })
+    const message = computed(() => $page.props.jetstream.flash?.banner || '')
+
 </script>
