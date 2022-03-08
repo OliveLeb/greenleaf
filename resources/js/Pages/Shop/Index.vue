@@ -6,5 +6,7 @@
 
 
 <template>
+<AppLayout>
   {{ products }}
+</AppLayout>
 </template>

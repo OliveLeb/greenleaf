@@ -19,7 +19,12 @@ export default defineConfig({
 
     AutoImport({
       imports: [
-          'vue'
+          'vue',
+          {
+            '@inertiajs/inertia-vue3': [
+             'usePage', 'useForm'
+            ]
+          }
       ],
       dts: 'resources/js/auto-imports.d.ts'
     }),
