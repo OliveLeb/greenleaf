@@ -6,12 +6,17 @@
 
 
 <template>
-  <article>
+  <article class="rounded-xl overflow-hidden border border-grey-500">
     <figure>
       <img :src="'/images/'+product.pictures[0].link" alt="">
-      <figcaption>
-        <h4>{{ product.name }}</h4>
-        <p>€ {{ product.price }}</p>
+      <figcaption class="py-2 px-4">
+        <h4 class="text-center">{{ product.name }}</h4>
+        <div class="flex justify-between">
+          <span>
+            € {{ product.price }}
+          </span>
+          <button>Cart</button>
+          </div>
       </figcaption>
     </figure>
   </article>

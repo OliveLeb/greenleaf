@@ -12,6 +12,7 @@ class ShopController extends Controller
     public function index()
     {
       $products = Product::take(8)->with('pictures')->inRandomOrder()->get();
+      
       return Inertia::render('Shop/Index', [
           'products' => $products,
       ]);

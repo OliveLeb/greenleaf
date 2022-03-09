@@ -1,22 +1,8 @@
 <?php
 
-namespace Database\Seeders;
-
-use App\Models\Picture;
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-class ProductSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+$categories = [
+  ['Fruitiers', 1], ['Plantes dinte', 2], ['arom', 3], ['graines', 4], ['aa', 5]
+];
 
 $products = [
   [
@@ -37,7 +23,7 @@ $products = [
     'price' => '4499',
     'quantity' => '1000',
     "categorie_code" => "PI",
-    "image" => 'plants/areca.jpg'
+    "image" => 'plants/arcea.jpg'
   ],
   [
     'name' => 'Spathiphyllum',
@@ -219,73 +205,125 @@ $products = [
     "categorie_code" => "PA",
     "image" => 'plants/sarriette_vivace.jpg'
   ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+  [
+    'name' => '',
+    'details' => "",
+    'description' => "",
+    'product_code' => '',
+    'price' => '',
+    'quantity' => '1000',
+    "categorie_code" => "PA",
+    "image" => 'plants/.jpg'
+  ],
+
 ];
-
-  // [
-  //   'name' => '',
-  //   'details' => "",
-  //   'description' => "",
-  //   'product_code' => '',
-  //   'price' => '',
-  //   'quantity' => '1000',
-  //   "categorie_code" => "PA",
-  //   "image" => 'plants/.jpg'
-  // ],
-
-    foreach($products as $key => $product) {
-
-      $category = Category::where('category_code', $product['categorie_code'])->get(['id']);
-
-      // Product::create(
-      //   [
-      //     'name' => $product['name'],
-      //     'details' => $product['details'],
-      //     'description' => $product['description'],
-      //     'product_code' => $product['product_code'] . $key,
-      //     'price' => $product['price'],
-      //     'quantity' => $product['quantity'],
-      //   ]
-      //   )
-      //   ->categories()->attach($category)
-      //   ->pictures()->create([
-      //     'title' => $product['name'],
-      //     'link' => $product['image']
-      //   ])
-      //   ->save();
-
-      $res_product = Product::create([
-        'name' => $product['name'],
-        'details' => $product['details'],
-        'description' => $product['description'],
-        'product_code' => $product['product_code'] . $key,
-        'price' => $product['price'],
-        'quantity' => $product['quantity'],          
-      ]);
-      $res_product->categories()->attach($category);
-      $res_product->pictures()->create([
-        'title' => $product['name'],
-        'link' => $product['image']
-      ]);
-      $res_product->save();
-
-    }
-
-        // Product::factory()
-        // ->count(20)
-        // ->create()
-        // ->each(function($product, $i) {
-        //     $category = Category::inRandomOrder()->first();
-
-        //     $product->pictures()->create([
-        //         'title' => $product->name,
-        //         'link' => 'default/no_image.png'
-        //     ]);
-
-        //     $product->product_code = $category->category_code . '-00' . $i++;
-
-        //     $product->categories()->attach($category);
-
-        //     $product->save();
-        // });
-    }
-}

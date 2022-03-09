@@ -6,9 +6,9 @@
 
 
 <template>
-<AppLayout>
+<AppLayout title="Shop - Green Leaf">
 
-  <section class="flex flex-wrap">
+  <section class="flex flex-wrap gap-4">
 
     <ProductCard v-for="product in products" :product="product" :key="product.product_code"/>
 
