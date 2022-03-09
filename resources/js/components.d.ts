@@ -30,6 +30,7 @@ declare module 'vue' {
     Modal: typeof import('./Jetstream/Modal.vue')['default']
     Nav: typeof import('./Components/Nav.vue')['default']
     NavLink: typeof import('./Jetstream/NavLink.vue')['default']
+    ProductCard: typeof import('./Components/ProductCard.vue')['default']
     ResponsiveNavLink: typeof import('./Jetstream/ResponsiveNavLink.vue')['default']
     SecondaryButton: typeof import('./Jetstream/SecondaryButton.vue')['default']
     SectionBorder: typeof import('./Jetstream/SectionBorder.vue')['default']

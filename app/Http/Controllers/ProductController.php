@@ -15,8 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+      $products = Product::find(1)->categories()->get();
+      dd($products);
         return Inertia::render('Shop/Index', [
-            'products' => Product::all(),
+            'products' => $products,
         ]);
     }
 

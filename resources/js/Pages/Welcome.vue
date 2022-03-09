@@ -7,14 +7,9 @@
   <section><h2>Top Sales</h2></section>
   
   <section class="flex flex-wrap">
-    <article v-for="product in products" :key="product.id">
-      <figure>
-        <img :src="'images/'+product.pictures[0].link" alt="">
-        <figcaption>
-          <h4>{{ product.name }}</h4>
-        </figcaption>
-      </figure>
-    </article>
+
+   <ProductCard v-for="product in products" :product="product" :key="product.product_code"/>
+   
   </section>
 </app-layout>
 </template>

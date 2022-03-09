@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 
@@ -25,7 +26,12 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 /* 
 *   Shop
 */
-Route::get('/shop', [ProductController::class, 'index'])->name('shop.index');
+Route::prefix('shop')->group(function() {
+  Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+  Route::get('/{slug}', [ShopController::class, 'getProductsByCategory'])->name('shop.category.products');
+});
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

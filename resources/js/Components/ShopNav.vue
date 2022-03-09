@@ -15,7 +15,7 @@ import { Link } from '@inertiajs/inertia-vue3'
       <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
       >
-        <ShopNavLink href="#">
+        <ShopNavLink :href="`/shop/${category.slug}`">
           {{ category.name }}
         </ShopNavLink>
       </div>
