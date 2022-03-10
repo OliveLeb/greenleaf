@@ -69,7 +69,7 @@
                 </button>
               </form>
               <Link href="#" class="hover:text-red-700 transition">
-                <span class="bg-red-600 text-white text-xs rounded-md p-1 absolute" style="top: -10px; right: -8px;" >
+                <span class="bg-red-600 text-white text-xs rounded-md p-1 absolute z-10" style="top: -10px; right: -8px;" >
                   3
                 </span>
                 <div class="i-heroicons-solid-shopping-cart text-lg"></div>

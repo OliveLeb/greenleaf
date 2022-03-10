@@ -22,7 +22,6 @@ declare module 'vue' {
     Dropdown: typeof import('./Jetstream/Dropdown.vue')['default']
     DropdownLink: typeof import('./Jetstream/DropdownLink.vue')['default']
     FormSection: typeof import('./Jetstream/FormSection.vue')['default']
-    Icons: typeof import('./Components/Icons.vue')['default']
     Input: typeof import('./Jetstream/Input.vue')['default']
     InputError: typeof import('./Jetstream/InputError.vue')['default']
     Label: typeof import('./Jetstream/Label.vue')['default']
