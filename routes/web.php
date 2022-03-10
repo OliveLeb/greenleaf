@@ -26,9 +26,9 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 /* 
 *   Shop
 */
-Route::prefix('shop')->group(function() {
-  Route::get('/', [ShopController::class, 'index'])->name('shop.index');
-  Route::get('/{slug}', [ShopController::class, 'getProductsByCategory'])->name('shop.category.products');
+Route::name('shop.')->prefix('shop')->group(function() {
+  Route::get('/', [ShopController::class, 'index'])->name('index');
+  Route::get('/{slug}', [ShopController::class, 'getProductsByCategory'])->name('category.products');
 });
 
 

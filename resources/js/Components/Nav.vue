@@ -40,7 +40,7 @@
         <div class="flex">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center">
-            <Link href="/" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
+            <Link :href="route('welcome')" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
               <MainLogo />
             </Link>
           </div>
@@ -49,18 +49,18 @@
         <div class="hidden sm:flex sm:items-center lg:items-start md:ml-6">
           <div class="ml-3 relative">
             <div class="flex items-center space-x-3 relative">
-              <Link href="/dashboard" class="hover:text-yellow-500 transition" v-if="$page.props.user">
+              <Link :href="route('dashboard')" class="hover:text-yellow-500 transition" v-if="$page.props.user">
                 Dashboard
               </Link>
               <template v-else>
-                <Link href="/register" class="hover:text-yellow-500 transition">
+                <Link :href="route('register')" class="hover:text-yellow-500 transition">
                   Register
                 </Link>
-                <Link href="/login" class="hover:text-yellow-500 transition">
+                <Link :href="route('login')" class="hover:text-yellow-500 transition">
                   Login
                 </Link>
               </template>
-              <Link href="/shop" class="hover:text-yellow-500 transition">
+              <Link :href="route('shop.index')" class="hover:text-yellow-500 transition">
                 Shop
               </Link>
               <form method="POST" @submit.prevent="logout" v-if="$page.props.user">
@@ -97,26 +97,25 @@
       >
           <template v-if="$page.props.user">
               <div class="pt-2 pb-3 space-y-1">
-                  <!-- :active="route().current('dashboard')" -->
-                  <responsive-nav-link href="/dashboard">
+                  <responsive-nav-link :href="route('dashboard')">
                       Dashboard
                   </responsive-nav-link>
               </div>
           </template>
           <template v-else>
               <div class="pt-2 pb-3 space-y-1">
-                  <responsive-nav-link href="/register">
+                  <responsive-nav-link :href="route('register')">
                       Register
                   </responsive-nav-link>
               </div>
               <div class="pt-2 pb-3 space-y-1">
-                  <responsive-nav-link href="/login">
+                  <responsive-nav-link :href="route('login')">
                       Login
                   </responsive-nav-link>
               </div>
           </template>
           <div class="pt-2 pb-3 space-y-1">
-              <responsive-nav-link href="#">
+              <responsive-nav-link :href="route('shop.index')">
                   Shop
               </responsive-nav-link>
           </div>

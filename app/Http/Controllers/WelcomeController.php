@@ -15,12 +15,8 @@ class WelcomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $products = Product::take(4)->with('pictures:id,title,link,product_id')->get();
-        
-        return Inertia::render('Welcome', [
-            'products' => $products,
-        ]);
+    {   
+        return Inertia::render('Welcome');
     }
 
     /**

@@ -1,5 +1,5 @@
 <template>
-  <Link :to="link" 
+  <Link :href="href" 
   class="py-2 mx-2
   hover:text-primary active:text-primary focus:text-primary
   relative block
@@ -14,7 +14,7 @@
 import { Link } from '@inertiajs/inertia-vue3'
 
   defineProps({
-    link: {
+    href: {
       type: String,
       default: '#'
     }

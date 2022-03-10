@@ -1,14 +1,21 @@
 import { defineConfig } from "vite";
-// import Tailwindcss from "tailwindcss";
 import Autoprefixer from "autoprefixer";
-import Laravel from "vite-plugin-laravel";
+import Laravel, { callArtisan, findPhpPath } from "vite-plugin-laravel";
 import vue from "@vitejs/plugin-vue";
 import Inertia from "./resources/js/vite/inertia-layout";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/vite'
+// @ts-ignore
+import path from 'path'
 
 export default defineConfig({
+    resolve: {
+        alias: {
+            'ziggy': path.resolve("vendor/tightenco/ziggy/dist"),
+        },
+    },
+
     plugins: [
         Inertia(),
 
@@ -17,10 +24,7 @@ export default defineConfig({
         Unocss(),
 
         Laravel({
-            postcss: [
-                // Tailwindcss(),
-                Autoprefixer(),
-            ],
+            postcss: [Autoprefixer()],
         }),
 
         AutoImport({
@@ -45,6 +49,6 @@ export default defineConfig({
     ],
 
     optimizeDeps: {
-        include: ["vue", "@inertiajs/inertia-vue3"],
+        include: ["vue", "@inertiajs/inertia-vue3", "ziggy"],
     },
 });
