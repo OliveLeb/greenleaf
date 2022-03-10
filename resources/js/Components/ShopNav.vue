@@ -15,7 +15,9 @@ import { Link } from '@inertiajs/inertia-vue3'
       <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-gray-200' : null]"
       >
-        <ShopNavLink :href="route('shop.category.products', category.slug)">
+        <ShopNavLink :href="route('shop.category.products', category.slug)"
+          :class="{ active : route().current('shop.category.products', { slug: category.slug }) }"
+        >
           {{ category.name }}
         </ShopNavLink>
       </div>
@@ -57,4 +59,11 @@ import { Link } from '@inertiajs/inertia-vue3'
   opacity: 0;
   transform: translateX(-50px);
 }
+a.active {
+  @apply text-primary before:scale-100 before:origin-top-left;
+}
+/* a.activate::before { */
+  /* transform-origin: left top; */
+  /* transform: scale(1, 1); */
+/* } */
 </style>

@@ -34,6 +34,8 @@ a::before {
   transform-origin: right top;
   transform: scale(0, 1);
   transition: color 0.1s,transform 0.2s ease-out;
+  /* transform-origin: top left;
+    transform: scale(1, 1); */
 }
 a:active::before {
   background-color: #34C45E;
