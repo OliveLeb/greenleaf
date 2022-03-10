@@ -4,7 +4,7 @@
       <p>
         Made with 
         <span class="text-red-500 text-sm relative">
-          <span class="animate-ping absolute inset-0 opaciy-75">❤</span>
+          <span class="animate-ping absolute inset-0 opacity-75">❤</span>
           <span>❤</span>
         </span>
         by

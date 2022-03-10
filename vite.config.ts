@@ -1,38 +1,50 @@
 import { defineConfig } from "vite";
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
-import laravel from "vite-plugin-laravel";
+// import Tailwindcss from "tailwindcss";
+import Autoprefixer from "autoprefixer";
+import Laravel from "vite-plugin-laravel";
 import vue from "@vitejs/plugin-vue";
-import inertia from "./resources/js/vite/inertia-layout";
+import Inertia from "./resources/js/vite/inertia-layout";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Unocss from 'unocss/vite'
 
 export default defineConfig({
-  plugins: [
-    inertia(),
+    plugins: [
+        Inertia(),
 
-    vue(),
+        vue(),
 
-    laravel({
-      postcss: [tailwindcss(), autoprefixer()],
-    }),
+        Unocss(),
 
-    AutoImport({
-      imports: [
-          'vue',
-          {
-            '@inertiajs/inertia-vue3': [
-             'usePage', 'useForm'
-            ]
-          }
-      ],
-      dts: 'resources/js/auto-imports.d.ts'
-    }),
+        Laravel({
+            postcss: [
+                // Tailwindcss(),
+                Autoprefixer(),
+            ],
+        }),
 
-    Components({
-      dirs: ['resources/js/Components', 'resources/js/Jetstream', 'resources/js/Layouts'],
-      extensions: ['vue'],
-      dts: 'resources/js/components.d.ts'
-    })
-  ],
+        AutoImport({
+            imports: [
+                "vue",
+                {
+                    "@inertiajs/inertia-vue3": ["usePage", "useForm"],
+                },
+            ],
+            dts: "resources/js/auto-imports.d.ts",
+        }),
+
+        Components({
+            dirs: [
+                "resources/js/Components",
+                "resources/js/Jetstream",
+                "resources/js/Layouts",
+            ],
+            extensions: ["vue"],
+            dts: "resources/js/components.d.ts",
+        }),
+    ],
+
+    optimizeDeps: {
+        include: ["vue", "@inertiajs/inertia-vue3"],
+    },
 });

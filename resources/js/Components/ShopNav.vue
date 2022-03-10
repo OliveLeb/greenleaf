@@ -9,11 +9,11 @@ import { Link } from '@inertiajs/inertia-vue3'
 
 
 <template>
-  <nav class="border-b border-grey-700 sticky top-0 bg-white">
+  <nav class="border-b border-gray-200 sticky top-0 bg-white">
 
     <div class="hidden md:flex justify-center py-2">  
       <div v-for="(category, index) in categories" :key="category.name"
-        :class="[index < categories.length - 1 ? 'border-r border-grey-500' : null]"
+        :class="[index < categories.length - 1 ? 'border-r border-gray-200' : null]"
       >
         <ShopNavLink :href="`/shop/${category.slug}`">
           {{ category.name }}
@@ -24,9 +24,7 @@ import { Link } from '@inertiajs/inertia-vue3'
     <!-- mobile -->
     <div class="flex justify-between md:hidden">
         <button class="flex items-center px-4 py-2" @click="showAside = !showAside">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--gg mr-2" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M4 6a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 12a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm1-7a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H5Z"></path>
-          </svg>
+            <div class="i-heroicons-outline-menu-alt-1 mr-2"></div>
           <span>
             Menu
           </span>

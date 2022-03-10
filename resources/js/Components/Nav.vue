@@ -33,7 +33,7 @@
 
 
 <template>
-  <nav class="bg-white border-b border-grey-700 z-50 lg:pt-3">
+  <nav class="bg-white border-b border-gray-200 z-50 lg:pt-3">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
       <div class="flex justify-between ">
@@ -72,7 +72,7 @@
                 <span class="bg-red-600 text-white text-xs rounded-md p-1 absolute" style="top: -10px; right: -8px;" >
                   3
                 </span>
-                <Icons type='cart' class='w-4 h-4 fill-current'/>
+                <div class="i-heroicons-solid-shopping-cart text-lg"></div>
               </Link>
             </div>
           </div>
@@ -122,7 +122,7 @@
           </div>
           <div class="pt-2 pb-3 space-y-1">
               <Link href="#" class="flex items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-red-700 hover:border-red-700 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition">                    
-                  <Icons type='cart' class='w-4 h-4 text-red-700 fill-current'/>
+                  <div class="i-heroicons-solid-shopping-cart text-lg text-red-700"></div>
                   <span class="ml-2">
                       3 item(s) in cart
                   </span>

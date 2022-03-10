@@ -6,7 +6,7 @@
 
 
 <template>
-  <article class="rounded-xl overflow-hidden border border-grey-500">
+  <article class="rounded-xl overflow-hidden border border-gray-200 max-w-sm">
     <figure>
       <img :src="'/images/'+product.pictures[0].link" alt="">
       <figcaption class="py-2 px-4">
