@@ -12,6 +12,7 @@ declare module 'vue' {
     AuthenticationCard: typeof import('./Jetstream/AuthenticationCard.vue')['default']
     AuthenticationCardLogo: typeof import('./Jetstream/AuthenticationCardLogo.vue')['default']
     Banner: typeof import('./Jetstream/Banner.vue')['default']
+    Breadcrumbs: typeof import('./Components/Breadcrumbs.vue')['default']
     BurgerMenu: typeof import('./Components/BurgerMenu.vue')['default']
     Button: typeof import('./Jetstream/Button.vue')['default']
     Checkbox: typeof import('./Jetstream/Checkbox.vue')['default']

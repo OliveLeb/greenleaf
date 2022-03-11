@@ -1,8 +1,17 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
-  title: String
+  title: String,
+  category: {
+    type: Object,
+    default: null,
+    required: false
+  },
+  product: {
+    type: String,
+    default: null
+  }
 })
 
 </script>
@@ -16,6 +25,17 @@ defineProps({
       <Nav />
 
       <ShopNav />
+
+      <Breadcrumbs v-if="route().current('shop.*')">
+        <template v-if="!product" #breadcrumbs>
+          <span>{{ category?.name }}</span>
+        </template>
+        <template v-else #breadcrumbs>
+          <Link :href="route('shop.category.products', category?.slug)" class="hover:underline">{{ category.name }}</Link>
+          >
+          <span>{{ product }}</span>
+        </template>
+      </Breadcrumbs>
 
         <!-- Page Heading -->
       <header class="bg-white shadow" v-if="$slots.header">

@@ -10,45 +10,52 @@ import Unocss from 'unocss/vite'
 import path from 'path'
 
 export default defineConfig({
-    resolve: {
-        alias: {
-            'ziggy': path.resolve("vendor/tightenco/ziggy/dist"),
-        },
+  resolve: {
+    alias: {
+      'ziggy': path.resolve("vendor/tightenco/ziggy/dist"),
     },
+  },
 
-    plugins: [
-        Inertia(),
+  server: {
+    hmr: {
+      overlay: false,
+      clientPort: 3000,
+    }
+  },
 
-        vue(),
+  plugins: [
+    Inertia(),
 
-        Unocss(),
+    vue(),
 
-        Laravel({
-            postcss: [Autoprefixer()],
-        }),
+    Unocss(),
 
-        AutoImport({
-            imports: [
-                "vue",
-                {
-                    "@inertiajs/inertia-vue3": ["usePage", "useForm"],
-                },
-            ],
-            dts: "resources/js/auto-imports.d.ts",
-        }),
+    Laravel({
+      postcss: [Autoprefixer()],
+    }),
 
-        Components({
-            dirs: [
-                "resources/js/Components",
-                "resources/js/Jetstream",
-                "resources/js/Layouts",
-            ],
-            extensions: ["vue"],
-            dts: "resources/js/components.d.ts",
-        }),
-    ],
+    AutoImport({
+      imports: [
+          "vue",
+          {
+              "@inertiajs/inertia-vue3": ["usePage", "useForm"],
+          },
+      ],
+      dts: "resources/js/auto-imports.d.ts",
+    }),
 
-    optimizeDeps: {
-        include: ["vue", "@inertiajs/inertia-vue3", "ziggy"],
-    },
+    Components({
+      dirs: [
+        "resources/js/Components",
+        "resources/js/Jetstream",
+        "resources/js/Layouts",
+      ],
+      extensions: ["vue"],
+      dts: "resources/js/components.d.ts",
+    }),
+  ],
+
+  optimizeDeps: {
+    include: ["vue", "@inertiajs/inertia-vue3", "ziggy"],
+  },
 });

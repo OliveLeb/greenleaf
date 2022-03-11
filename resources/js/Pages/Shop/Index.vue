@@ -2,13 +2,15 @@
   defineProps({
     products: Array
   })
+
+  const currentCategory = computed(() => usePage().props.value.categories.find(el => el.slug === route().params.slug))
+  const titleName = computed(() => currentCategory.value?.name ?? 'Shop')
+
 </script>
 
-
 <template>
-<AppLayout title="Shop - Green Leaf">
+<AppLayout :title="`${titleName} - Green Leaf`" :category="currentCategory">
 
-  <!-- <section class="grid m-auto grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4"> -->
   <section class="flex flex-wrap justify-center gap-4">
 
     <template v-if="products.length > 0">

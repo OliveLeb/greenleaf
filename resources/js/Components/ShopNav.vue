@@ -62,8 +62,4 @@ import { Link } from '@inertiajs/inertia-vue3'
 a.active {
   @apply text-primary before:scale-100 before:origin-top-left;
 }
-/* a.activate::before { */
-  /* transform-origin: left top; */
-  /* transform: scale(1, 1); */
-/* } */
 </style>

@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, presetWebFonts, transformerDirectives} from "unocss";
+import { defineConfig, presetUno, presetIcons, presetWebFonts, transformerDirectives, presetAttributify} from "unocss";
 
 export default defineConfig({
     presets: [
@@ -12,6 +12,7 @@ export default defineConfig({
             robot: 'Roboto'
           }
         }),
+        presetAttributify()
     ],
     theme: {
       colors: {
