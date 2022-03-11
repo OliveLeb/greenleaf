@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import Autoprefixer from "autoprefixer";
-import Laravel, { callArtisan, findPhpPath } from "vite-plugin-laravel";
+import Laravel from "vite-plugin-laravel";
 import vue from "@vitejs/plugin-vue";
 import Inertia from "./resources/js/vite/inertia-layout";
 import AutoImport from 'unplugin-auto-import/vite'

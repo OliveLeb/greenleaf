@@ -1,10 +1,11 @@
 <template>
   <Link :href="href" 
-  class="py-2 mx-2
+  class="py-2
   hover:text-primary active:text-primary focus:text-primary
   relative block
   transition-colors
   "
+  gl-m="x-2"
   >
     <slot />
   </Link>
