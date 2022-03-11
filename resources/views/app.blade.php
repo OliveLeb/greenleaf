@@ -9,7 +9,7 @@
         @routes
         @vite
     </head>
-    <body class="font-robot antialiased">
+    <body>
         @inertia
     </body>
 </html>

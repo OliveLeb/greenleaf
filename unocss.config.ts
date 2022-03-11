@@ -7,19 +7,20 @@ export default defineConfig({
             scale: 1.2,
             warn: true,
         }),
-        presetWebFonts({
-          fonts: {
-            robot: 'Roboto'
-          }
+        // presetWebFonts({
+        //   fonts: {
+        //     robot: 'Roboto'
+        //   }
+        // }),
+        presetAttributify({
+            prefix: "gl-",
+            ignoreAttributes: ['stroke', 'fill']
         }),
-        presetAttributify()
     ],
     theme: {
-      colors: {
-        primary: '#34C45E'
-      }
+        colors: {
+            primary: "#34C45E",
+        },
     },
-    transformers: [
-      transformerDirectives()
-    ]
+    transformers: [transformerDirectives()],
 });

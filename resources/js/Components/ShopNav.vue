@@ -35,16 +35,22 @@ import { Link } from '@inertiajs/inertia-vue3'
     </div>
   </nav>
 
-  <div class="fixed inset-0 bg-neutral-700/75" v-if="showAside" @click="showAside = !showAside">
+  <div class="fixed inset-0 bg-neutral-700/75 z-[98]" v-if="showAside" @click="showAside = !showAside">
   </div>
 
   <Transition name="slide-right">
-    <aside class="fixed top-0 bottom-0 bg-slate-200 w-4/5 z-[100]" v-show="showAside">
-        <div v-for="category in categories" :key="category" class="px-4 py-2">
-          <Link href="#">
-            {{ category }}
-          </Link>  
-        </div>
+    <aside class="fixed top-0 bottom-0 bg-inherit w-4/5 z-[100] px-4 text-sm font-bold" v-show="showAside">
+
+        <MainLogo class="mb-6"/>
+
+        <section>
+          <div v-for="category in categories" :key="category" class="py-2">
+            <Link :href="route('shop.category.products', category.slug)">
+              {{ category.name }}
+            </Link>  
+          </div>
+        </section>
+
     </aside>
   </Transition>
 </template>

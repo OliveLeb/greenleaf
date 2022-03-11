@@ -40,7 +40,7 @@
         <div class="flex">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center">
-            <Link :href="route('welcome')" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
+            <Link :href="route('welcome')" id="truc" class="text-primary block w-auto hover:text-yellow-500 transition text-xl font-bold">
               <MainLogo />
             </Link>
           </div>
