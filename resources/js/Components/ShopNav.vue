@@ -1,22 +1,34 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
 
+  const props = defineProps({
+    menuCanBeShown: {
+      type: Boolean,
+      default: false
+    }
+  })
+
   const categories = computed(() => usePage().props.value.categories)
 
   const showAside = ref(false)
+  const show = toRef(props, 'menuCanBeShown')
+
+  watch(show, () => {
+    if (!show.value) return showAside.value = false
+    return
+  })
 
 </script>
 
 
 <template>
-  <nav class="border-b border-gray-200 sticky top-0 bg-white">
-
+  <nav class="border-b border-gray-200 bg-white">
     <div class="hidden md:flex justify-center py-2">  
       <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-gray-200' : null]"
       >
-        <ShopNavLink :href="route('shop.category.products', category.slug)"
-          :class="{ active : route().current('shop.category.products', { slug: category.slug }) }"
+        <ShopNavLink :href="route('shop.products.category', category.slug)"
+          :class="{ active : route().current('shop.products.category', { slug: category.slug }) }"
         >
           {{ category.name }}
         </ShopNavLink>
@@ -35,17 +47,17 @@ import { Link } from '@inertiajs/inertia-vue3'
     </div>
   </nav>
 
-  <div class="fixed inset-0 bg-neutral-700/75 z-[98]" v-if="showAside" @click="showAside = !showAside">
+  <div class="fixed inset-0 bg-neutral-700/75 z-[98]" v-if="showAside && menuCanBeShown" @click="showAside = !showAside">
   </div>
 
   <Transition name="slide-right">
-    <aside class="fixed top-0 bottom-0 bg-inherit w-4/5 z-[100] px-4 text-sm font-bold" v-show="showAside">
+    <aside class="fixed top-0 bottom-0 bg-white w-4/5 z-[100] px-4 text-sm font-bold" v-show="showAside && menuCanBeShown">
 
         <MainLogo class="mb-6"/>
 
         <section>
           <div v-for="category in categories" :key="category" class="py-2">
-            <Link :href="route('shop.category.products', category.slug)">
+            <Link :href="route('shop.products.category', category.slug)">
               {{ category.name }}
             </Link>  
           </div>

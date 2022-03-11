@@ -16,12 +16,12 @@ export default defineConfig({
     },
   },
 
-  server: {
-    hmr: {
-      overlay: false,
-      clientPort: 3000,
-    }
-  },
+  // server: {
+  //   hmr: {
+  //     overlay: false,
+  //     clientPort: 3000,
+  //   }
+  // },
 
   plugins: [
     Inertia(),

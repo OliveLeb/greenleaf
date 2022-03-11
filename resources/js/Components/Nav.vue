@@ -1,19 +1,19 @@
 <script setup>
   import { Link } from '@inertiajs/inertia-vue3';
 
-  const showMenu = ref(false)
-  const size =  ref(0)
-
-  onMounted(()=>{
-    size.value = window.innerWidth
-    window.addEventListener('resize', ()=> {
-      size.value = window.innerWidth
-    })    
+  const props = defineProps({
+    menuCanBeShown: {
+      type: Boolean,
+      default: false
+    }
   })
 
-  watch(size, () => {
-    if (size.value >= 768) return showMenu.value = false
-    return true
+  const showMenu = ref(false)
+  const show = toRef(props, 'menuCanBeShown')
+
+  watch(show, () => {
+    if (!show.value) return showMenu.value = false
+    return
   })
 
   watch(showMenu, () => {
@@ -87,12 +87,13 @@
 
       <!-- Responsive Navigation Menu -->
       <transition name="slide-fade">
-      <div v-show="showMenu"
+      <div v-show="showMenu && menuCanBeShown"
         class="
         fixed
         left-0 right-0 bottom-0 top-[4.5rem]
         bg-white
         text-center
+        z-50
         "
       >
           <template v-if="$page.props.user">

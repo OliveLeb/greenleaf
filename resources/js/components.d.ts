@@ -38,6 +38,7 @@ declare module 'vue' {
     ShopNav: typeof import('./Components/ShopNav.vue')['default']
     ShopNavLink: typeof import('./Components/ShopNavLink.vue')['default']
     TheFooter: typeof import('./Components/TheFooter.vue')['default']
+    TheHeader: typeof import('./Components/TheHeader.vue')['default']
     ValidationErrors: typeof import('./Jetstream/ValidationErrors.vue')['default']
     Welcome: typeof import('./Jetstream/Welcome.vue')['default']
   }

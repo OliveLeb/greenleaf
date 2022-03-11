@@ -3,7 +3,7 @@
     products: Array
   })
 
-  const currentCategory = computed(() => usePage().props.value.categories.find(el => el.slug === route().params.slug))
+  const currentCategory = computed(() => usePage().props.value.categories.find(el => el.slug === route().params.slug) ?? null)
   const titleName = computed(() => currentCategory.value?.name ?? 'Shop')
 
 </script>
