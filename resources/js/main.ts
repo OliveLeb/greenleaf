@@ -12,9 +12,9 @@ createInertiaApp({
   resolve: (name) =>
     importPageComponent(name, import.meta.glob("./Pages/**/*.vue")),
     setup({ el, app, props, plugin }) {
-      createApp({ render: () => h(app, props) })
-          .use(plugin)
-          .mixin({ methods: { route }})
-          .mount(el);
+      const vueApp = createApp({ render: () => h(app, props) })
+      vueApp.config.globalProperties.$route = route
+      vueApp.use(plugin)
+      .mount(el);
     },
 });

@@ -1,4 +1,6 @@
 <script setup>
+  import { formatCurrency } from '@/utils'
+  
   defineProps({
     product: Object
   })
@@ -13,9 +15,9 @@
         <h4 class="text-center">{{ product.name }}</h4>
         <div class="flex justify-between">
           <span>
-            € {{ product.price }}
+            {{ formatCurrency(product.price) }}
           </span>
-          <button>Cart</button>
+          <button class="i-carbon-shopping-cart-plus hover:animate-bounce focus:animate-bounce active:animate-bounce text-xl"></button>
           </div>
       </figcaption>
     </figure>

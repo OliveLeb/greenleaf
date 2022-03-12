@@ -5,8 +5,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@iconify-json/heroicons-outline": "^1.1.1",
-    "@iconify-json/heroicons-solid": "^1.1.1",
+    "@iconify-json/carbon": "^1.1.1",
     "@inertiajs/progress": "^0.2.6",
     "@vitejs/plugin-vue": "^2.2.4",
     "@vue/compiler-sfc": "^3.0.5",

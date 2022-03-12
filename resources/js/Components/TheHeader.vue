@@ -36,12 +36,12 @@
 
     <ShopNav :menuCanBeShown="menuCanBeShown" />
 
-    <Breadcrumbs v-if="route().current('shop.products.*')">
+    <Breadcrumbs v-if="$route().current('shop.products.*')">
       <template v-if="!product" #breadcrumbs>
         <span>{{ category?.name }}</span>
       </template>
       <template v-else #breadcrumbs>
-        <Link :href="route('shop.products.category', category?.slug)" class="hover:underline">{{ category.name }}</Link>
+        <Link :href="$route('shop.products.category', category?.slug)" class="hover:underline">{{ category.name }}</Link>
         >
         <span>{{ product }}</span>
       </template>

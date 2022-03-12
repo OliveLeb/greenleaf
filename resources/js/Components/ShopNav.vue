@@ -27,8 +27,8 @@ import { Link } from '@inertiajs/inertia-vue3'
       <div v-for="(category, index) in categories" :key="category.name"
         :class="[index < categories.length - 1 ? 'border-r border-gray-200' : null]"
       >
-        <ShopNavLink :href="route('shop.products.category', category.slug)"
-          :class="{ active : route().current('shop.products.category', { slug: category.slug }) }"
+        <ShopNavLink :href="$route('shop.products.category', category.slug)"
+          :class="{ active : $route().current('shop.products.category', { slug: category.slug }) }"
         >
           {{ category.name }}
         </ShopNavLink>
@@ -38,7 +38,7 @@ import { Link } from '@inertiajs/inertia-vue3'
     <!-- mobile -->
     <div class="flex justify-between md:hidden">
         <button class="flex items-center px-4 py-2" @click="showAside = !showAside">
-            <div class="i-heroicons-outline-menu-alt-1 mr-2"></div>
+            <div class="i-carbon-text-align-center mr-2"></div>
           <span>
             Menu
           </span>
@@ -57,7 +57,7 @@ import { Link } from '@inertiajs/inertia-vue3'
 
         <section>
           <div v-for="category in categories" :key="category" class="py-2">
-            <Link :href="route('shop.products.category', category.slug)">
+            <Link :href="$route('shop.products.category', category.slug)">
               {{ category.name }}
             </Link>  
           </div>
