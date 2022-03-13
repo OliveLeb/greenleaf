@@ -22,10 +22,28 @@ class ShopController extends Controller
     { 
       $products = Product::whereHas('categories', function($query) use($category_slug) {
         $query->where('slug', $category_slug);
-      })->with('pictures:id,title,link,product_id')->inRandomOrder()->get();
-      
+      })->with('pictures:id,title,link,product_id')
+      ->select('id', 'name', 'price', 'slug')
+      ->inRandomOrder()
+      ->get();
+
       return Inertia::render('Shop/Index', [
         'products' => $products
+      ]);
+    }
+
+
+    /*
+    * Display the specified resource
+    *
+    * @param \App\Models\Product $Product
+    * @return \Illuminate\Response
+    */
+    public function show(Product $product)
+    {
+      return Inertia::render('Shop/ShowProduct', [
+        'product' => $product,
+        'pictures'=> $product->pictures
       ]);
     }
 }

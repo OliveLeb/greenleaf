@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/inertia-vue3';
 
 defineProps({
   title: String,
@@ -9,7 +9,7 @@ defineProps({
     required: false
   },
   product: {
-    type: String,
+    type: Object,
     default: null
   }
 })
@@ -32,7 +32,7 @@ defineProps({
       </header> -->
 
         <!-- Page Content -->
-      <main class="flex-1 p-4 md:px-6 md:py-12">
+      <main class="flex-1 px-4 pt-4 pb-18 md:px-6 md:py-12 w-full md:max-w-screen-xl m-auto">
         <slot></slot>
       </main>
         

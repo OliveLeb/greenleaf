@@ -28,7 +28,6 @@
   const logout = () => {
     $inertia.post('/logout')
   }
-
 </script>
 
 

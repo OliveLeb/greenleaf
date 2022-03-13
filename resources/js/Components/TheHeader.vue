@@ -7,7 +7,7 @@
       default: null,
     },
     product: {
-      type: String,
+      type: Object,
       default: null
     }
   })
@@ -31,7 +31,7 @@
 
 
 <template>
-  <header class="sticky -top-[3.7rem] md:-top-22">
+  <header class="sticky -top-[3.7rem] md:-top-22 z-[100]">
     <Nav :menuCanBeShown="menuCanBeShown" />
 
     <ShopNav :menuCanBeShown="menuCanBeShown" />
@@ -41,9 +41,9 @@
         <span>{{ category?.name }}</span>
       </template>
       <template v-else #breadcrumbs>
-        <Link :href="$route('shop.products.category', category?.slug)" class="hover:underline">{{ category.name }}</Link>
-        >
-        <span>{{ product }}</span>
+        <!-- <Link :href="$route('shop.products.category', category?.slug)" class="hover:underline">{{ category.name }}</Link>
+        > -->
+        <span>{{ product.name }}</span>
       </template>
     </Breadcrumbs>
   </header>

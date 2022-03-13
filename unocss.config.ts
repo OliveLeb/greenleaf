@@ -1,4 +1,4 @@
-import { defineConfig, presetUno, presetIcons, transformerDirectives } from "unocss";
+import { defineConfig, presetUno, presetIcons, transformerDirectives,presetAttributify } from "unocss";
 
 export default defineConfig({
     presets: [
@@ -7,6 +7,10 @@ export default defineConfig({
             scale: 1.2,
             warn: true,
         }),
+        presetAttributify({
+          prefix: 'gl-',
+          ignoreAttributes: ['stroke', 'fill']
+        })
     ],
     theme: {
         colors: {

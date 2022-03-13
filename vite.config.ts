@@ -39,6 +39,7 @@ export default defineConfig({
           "vue",
           {
               "@inertiajs/inertia-vue3": ["usePage", "useForm"],
+              "@inertiajs/inertia": ["Inertia"]
           },
       ],
       dts: "resources/js/auto-imports.d.ts",

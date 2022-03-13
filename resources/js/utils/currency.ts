@@ -6,3 +6,7 @@ export const formatCurrency = (value: number) : string => {
     }).format(value)
 
 }
+
+export const getTotalPrice = (quantity: number, price: number) : number => {
+  return quantity * (price * 100)
+}

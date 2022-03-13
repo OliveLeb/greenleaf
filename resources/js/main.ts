@@ -6,7 +6,7 @@ import route from 'ziggy'
 
 import './bootstrap'
 import "@unocss/reset/tailwind.css"
-import 'uno.css';
+import 'uno.css'
 
 createInertiaApp({
   resolve: (name) =>
