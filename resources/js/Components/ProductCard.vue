@@ -29,9 +29,8 @@
     product: {
       type: Object,
       required: true
-    }
+    },
   })
-  
 </script>
 
 
